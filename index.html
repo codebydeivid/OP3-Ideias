@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/icone.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
     <title>Organizador de Ideias</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Indicador de salvamento -->
     <div class="saving-indicator" id="savingIndicator">
-        💾 Salvando automaticamente...
+        Salvando automaticamente...
+    </div>
+
+    <!-- Status de conexão -->
+    <div class="connection-status" id="connectionStatus">
+        🟢 Online
     </div>
 
     <!-- Cabeçalho -->
@@ -31,25 +34,29 @@
     <div class="container">
         <!-- Estatísticas do projeto -->
         <div class="project-stats" id="projectStats">
-            🎮 Projeto iniciado • Suas ideias serão mantidas durante esta sessão
+            🎮 Carregando projeto... Aguarde um momento
         </div>
 
         <!-- Controles de dados -->
-        <div class="data-controls" style="margin-bottom: 2rem; justify-content: center;">
+        <div class="data-controls">
             <button class="export-button" onclick="organizer.exportData()">
                 📥 Exportar Projeto
             </button>
             <button class="import-button" onclick="document.getElementById('importInput').click()">
                 📤 Importar Projeto
             </button>
+            <button class="clear-button" onclick="organizer.clearAllData()">
+                🗑️ Limpar Tudo
+            </button>
             <input type="file" id="importInput" class="import-input" accept=".json" onchange="organizer.importData(event)">
         </div>
+
         <!-- Seção Narrativa -->
         <section class="section active" id="narrativa">
             <div class="section-header">
                 <h2 class="section-title">Narrativa do Jogo</h2>
                 <button class="add-button" onclick="addIdea('narrativa')">
-                    ➕ Adicionar Ideia
+                    + Adicionar Ideia
                 </button>
             </div>
             <div class="ideas-grid" id="narrativa-grid"></div>
@@ -60,7 +67,7 @@
             <div class="section-header">
                 <h2 class="section-title">Personagens</h2>
                 <button class="add-button" onclick="addIdea('personagens')">
-                    ➕ Adicionar Personagem
+                    + Adicionar Personagem
                 </button>
             </div>
             <div class="ideas-grid" id="personagens-grid"></div>
@@ -71,7 +78,7 @@
             <div class="section-header">
                 <h2 class="section-title">Mecânicas de Jogo</h2>
                 <button class="add-button" onclick="addIdea('mecanicas')">
-                    ➕ Adicionar Mecânica
+                    _ Adicionar Mecânica
                 </button>
             </div>
             <div class="ideas-grid" id="mecanicas-grid"></div>
@@ -82,7 +89,7 @@
             <div class="section-header">
                 <h2 class="section-title">Tecnologias e Ferramentas</h2>
                 <button class="add-button" onclick="addIdea('tecnologias')">
-                    ➕ Adicionar Tecnologia
+                    + Adicionar Tecnologia
                 </button>
             </div>
             <div class="ideas-grid" id="tecnologias-grid"></div>
@@ -93,7 +100,7 @@
             <div class="section-header">
                 <h2 class="section-title">Cronograma do Projeto</h2>
                 <button class="add-button" onclick="addIdea('cronograma')">
-                    ➕ Adicionar Tarefa
+                    + Adicionar Tarefa
                 </button>
             </div>
             <div class="ideas-grid" id="cronograma-grid"></div>

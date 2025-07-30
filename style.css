@@ -1,4 +1,3 @@
-/* Reset.css */
 * {
     margin: 0;
     padding: 0;
@@ -193,11 +192,6 @@ body {
     box-shadow: 0 4px 12px rgba(245, 101, 101, 0.4);
 }
 
-.delete-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(245, 101, 101, 0.3);
-}
-
 .balloon-content {
     width: 100%;
     min-height: 120px;
@@ -239,6 +233,104 @@ body {
     border-color: #ed8936;
 }
 
+/* Botões de controle */
+.data-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.export-button, .import-button, .clear-button {
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.export-button, .import-button {
+    background: #7242e1;
+}
+
+.clear-button {
+    background: #e53e3e;
+}
+
+.export-button:hover, .import-button:hover {
+    background: #5e34be;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(114, 66, 225, 0.3);
+}
+
+.clear-button:hover {
+    background: #c53030;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+.import-input {
+    display: none;
+}
+
+/* Estatísticas do projeto */
+.project-stats {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.saving-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #48bb78;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1001;
+}
+
+.saving-indicator.show {
+    opacity: 1;
+}
+
+/* Status de conexão */
+.connection-status {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(72, 187, 120, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.connection-status.offline {
+    background: rgba(245, 101, 101, 0.9);
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .header {
@@ -278,66 +370,4 @@ body {
     .idea-balloon {
         padding: 1rem;
     }
-}
-
-/* Botão de exportar/importar */
-.data-controls {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.export-button, .import-button {
-    background: #7242e1;
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 20px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.export-button:hover, .import-button:hover {
-    background: #5e34be;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(114, 66, 225, 0.3);
-}
-
-.import-input {
-    display: none;
-}
-
-/* Estatísticas do projeto */
-.project-stats {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    color: white;
-    font-size: 0.9rem;
-    text-align: center;
-    backdrop-filter: blur(10px);
-}
-.saving-indicator {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #48bb78;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1001;
-}
-
-.saving-indicator.show {
-    opacity: 1;
 }
